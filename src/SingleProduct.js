@@ -165,7 +165,7 @@ const SingleProduct = () => {
             ) : (
               <iframe
                 className="ARiframe"
-                src={"https://ar-chair-viewer-six.vercel.app/?model=" + product.sku}
+                src={"https://ar-chair-viewer.vercel.app/?model=" + product.sku}
                 title="AR Chair Viewer"
                 frameBorder="0"
                 width="950"
