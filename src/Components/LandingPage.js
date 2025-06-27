@@ -53,7 +53,6 @@ const Wrapper = styled.section`
   margin-bottom:10px;
   padding:30px
 }
-  padding: 15rem -1;
   img {
     min-width: 10rem;
     height: 10rem;
@@ -76,7 +75,7 @@ const Wrapper = styled.section`
   }
   .hero-section-image {
     margin-top: 10px;
-    width: 100%;
+    width: 80%;
     height: auto;
     display: flex;
      justify-content: right;
@@ -120,17 +119,22 @@ const Wrapper = styled.section`
     display: flex;
   }
   .img-style {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid {
       // gap: 10rem;
     }
+    figure{
+     margin-right:0px;
+      margin-left:0px;
+    }
     figure::after {
       // content: "";
       // width: 50%;
-      // height: 100%;
+      height: 50%;
+     
       // left: 0;
       top: 10%;
       /* bottom: 10%; */

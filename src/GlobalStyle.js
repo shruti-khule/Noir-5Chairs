@@ -63,16 +63,12 @@ video{
   font-size:50px;
   font-weight:bold;
 }  
-.carousel {
-  display: none !important;
-}
+
 .threeprod {
   display: block !important;
 }
 @media screen and (max-width: 425px) {
-  .carousel {
-    display: block !important;
-  }
+  
   .threeprod {
     display: none !important;
   }
@@ -303,7 +299,7 @@ body {
     border-radius: .15rem;
 
     /* space for the button */
-    min-height: 33rem;         // tweak the number to your liking
+    min-height: 38rem;         // tweak the number to your liking
     padding: 1.5rem 1.5rem 4rem;
 
     /* vertical stack */
@@ -560,19 +556,17 @@ input, textarea{
     .hero-section-image {
       margin-right: 0 !important;
     }
-    .carousel {
-      height: auto !important;
-    }
+   
     iframe{
     width: auto !important;
    }
 
-.grid{
-  gap: 3.2rem;
-}
-      .grid-two-column , .grid-three-column, .grid-four-column{
-          grid-template-columns: 1fr;
-        }
+    .grid{
+      gap: 3.2rem;
+    }
+    .grid-two-column , .grid-three-column, .grid-four-column{
+        grid-template-columns: 1fr;
+      }
     }
     code {
       font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -593,6 +587,10 @@ input, textarea{
       
       margin-top: 80px;
       overflow-wrap: normal;
+
+      .product-card{
+      min-height: 40rem;
+      }
     
     }
     
@@ -632,7 +630,6 @@ input, textarea{
 
   
     img{
-      height: 100px;
       width: 160px;
       background-size: 100%;
     }
@@ -750,10 +747,6 @@ input, textarea{
       background-color:red;
     }
 
-    .carousel {
-      height: 40rem;
-      overflow:hidden;
-    }
      .iFrame{
       width: 560px;
      }
@@ -762,11 +755,7 @@ input, textarea{
       margin-top: 20px;
       margin-bottom: -50px;
      }
-     .carousel-image {
-      margin-top: 40px;
-        height: 100%;
-        width: 100%;
-     }
+     
      .productlistHeadh4 {
       font-size: 25px !important;
       color: rgb(54, 79, 107);  

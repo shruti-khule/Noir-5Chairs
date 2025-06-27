@@ -7,7 +7,7 @@ const product_card = [
     currency: "EURO", 
     thumb: "./images/image2_atlas.png",
     
-    sku: "3DImage1_atlas",
+    sku: "3Dimage1_atlas",
     src: "https://sketchfab.com/models/cee12c29ebda4bcdb91b84a6f126a971/embed",
    
 
@@ -20,7 +20,7 @@ const product_card = [
     currency: "EURO",
     
     thumb: "./images/image3_sierra.png",
-    sku: "3DImage2_sierra",
+    sku: "3Dimage2_sierra",
     src: "https://sketchfab.com/models/8541b1ebf4ff4fcbb14aabbe721e6e3b/embed",
     
     
@@ -34,7 +34,7 @@ const product_card = [
     currency: "EURO",
     thumb: "./images/image4_andes.png",
     
-    sku: "3DImage3_andes",
+    sku: "3Dimage3_andes",
     src: "https://sketchfab.com/models/2206e982ea5f40b5be49390308de2db3/embed",
     
     
@@ -48,7 +48,7 @@ const product_card = [
     thumb: "./images/image5_acadia.png",
    
     src: "https://sketchfab.com/models/cee12c29ebda4bcdb91b84a6f126a971/embed",
-    sku: "3DImage4_acadia",
+    sku: "3Dimage4_acadia",
     
     
   },
@@ -62,7 +62,7 @@ const product_card = [
     
     
     src: "https://sketchfab.com/models/5502908492f644e99545b7d4f675bc1a/embed",
-    sku: "3DImage5_savanna",
+    sku: "3Dimage5_savanna",
     
     
     
