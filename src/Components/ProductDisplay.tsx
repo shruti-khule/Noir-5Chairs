@@ -1,0 +1,80 @@
+import React, { useEffect } from 'react';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { BsDot } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
+import { doc, setDoc, arrayUnion } from '@firebase/firestore';
+import { db } from '../services/firebase';
+import { TimeData } from '../types/types';
+
+interface ProductDisplayProps {
+  product: { id: string; product_name: string; farbe: string };
+  userId: string;
+  mode?: string;
+  timeData: TimeData;
+}
+
+const ProductDisplay: React.FC<ProductDisplayProps> = ({
+  product,
+  userId,
+  mode,
+  timeData,
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    const productIdSequence: string[] = JSON.parse(sessionStorage.getItem('shuffledIDs') ?? '[]');
+    const shuffledIndex = productIdSequence.indexOf(product.id);
+    const productDetailsVersion: boolean[] = JSON.parse(
+      sessionStorage.getItem('productdetailsVersion') ?? '[]',
+    );
+
+    await setDoc(
+      doc(db, 'users', userId),
+      {
+        'Clicked More Information': arrayUnion(`${product.product_name} ${new Date().toISOString()}`),
+        'Time Spent on Presentation Section': arrayUnion(timeData.productName ? timeData : 'Mobile view'),
+      },
+      { merge: true },
+    );
+
+    navigate(
+      `/product/moreinfo?mode=${mode}&product_id=${product.id}&userId=${userId}&isV=${productDetailsVersion[shuffledIndex]}`,
+    );
+  };
+
+  useEffect(() => window.scrollTo(0, 0), []);
+
+  return (
+    <section className="relative p-2.5 mt-2.5 mr-2.5">
+      <h2 className="mb-4 text-center font-bold underline decoration-4 decoration-primary-blue">
+        Features
+      </h2>
+
+      <ul className="space-y-4">
+        {[
+          { label: 'Price: $89.99', key: 'price' },
+          { label: `Color: ${product.farbe}`, key: 'color' },
+        ].map(({ label, key }) => (
+          <li
+            key={key}
+            className="flex items-center font-round font-bold text-[42px] mdx:text-4xl lg:text-3xl xs:text-2xl"
+          >
+            <BsDot className="mr-2" /> {label}
+          </li>
+        ))}
+
+        <li>
+          <button
+            onClick={handleClick}
+            className="mt-4 flex items-center gap-2 rounded border border-black bg-white
+                       px-4 py-2 font-bold text-xl lg:text-base"
+          >
+            <AiOutlineArrowRight /> More Information
+          </button>
+        </li>
+      </ul>
+    </section>
+  );
+};
+
+export default ProductDisplay;

@@ -4,16 +4,16 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Home from "./Home";
-import Contact from "./Contact";
-import Thankyoupage from "./Thankyoupage";
-import SingleProduct from "./SingleProduct";
-import ErrorPage from "./ErrorPage";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Thankyoupage from "./pages/Thankyoupage";
+import SingleProduct from "./pages/SingleProduct";
+import ErrorPage from "./pages/ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-import MoreinfoPositive from "./moreinfoPositive";
-import MoreinfoNegative from "./moreinfoNegative";
-import Login from "./login";
+import MoreinfoPositive from "./Components/moreinfoPositive";
+import MoreinfoNegative from "./Components/moreinfoNegative";
+import Login from "./pages/login";
 import ReactGA from "react-ga4";
 import Model3D from "./Components/Model3D";
 import { CookiesProvider } from "react-cookie";
