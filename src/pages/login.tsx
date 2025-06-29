@@ -99,7 +99,7 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
 >
   <label className="text-3xl font-bold">
     Please enter your response ID&nbsp;
-    <small className="text-lg font-normal">(initials + day of birth, e.g., LD03)</small>
+    <small className="text-3xl font-bold">(initials + day of birth, e.g., LD03)</small>
   </label>
 
   <input
@@ -112,8 +112,15 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
 
   <input
     type="submit"
-    value="Submit"
-    className="mt-4 px-6 py-2 bg-primary-blue text-white rounded cursor-pointer"
+    value="SUBMIT"
+    className="mt-4 px-[2rem] py-[1rem]
+    bg-[#6254F3] text-white
+    rounded border border-transparent
+    cursor-pointer
+    hover:bg-[#0b5ed7]
+    hover:border-[#0a58ca]
+    hover:text-[#fff]
+    transition-colors"
   />
 </form>
     </div>

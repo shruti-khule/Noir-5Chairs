@@ -45,34 +45,35 @@ const ProductDisplay: React.FC<ProductDisplayProps> = ({
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <section className="relative p-2.5 mt-2.5 mr-2.5">
-      <h2 className="mb-4 text-center font-bold underline decoration-4 decoration-primary-blue">
+    <section className="relative items-center p-2.5 mt-2.5 mr-2.5 flex flex-col justify-around ">
+      <h2 className="mb-4 text-center font-bold underline decoration-4 decoration-primary-blue text-[44px] text-primary-blue">
         Features
       </h2>
 
-      <ul className="space-y-4">
+      <div className="space-y-4 items-center text-[25px] font-fira-sans mb-10 mt-10">
         {[
           { label: 'Price: $89.99', key: 'price' },
           { label: `Color: ${product.farbe}`, key: 'color' },
         ].map(({ label, key }) => (
           <li
             key={key}
-            className="flex items-center font-round font-bold text-[42px] mdx:text-4xl lg:text-3xl xs:text-2xl"
+            className="flex items-center font-round font-bold text-[25px] mdx:text-xl lg:text-2xl xs:text-base"
           >
             <BsDot className="mr-2" /> {label}
           </li>
         ))}
 
-        <li>
+        
           <button
             onClick={handleClick}
-            className="mt-4 flex items-center gap-2 rounded border border-black bg-white
-                       px-4 py-2 font-bold text-xl lg:text-base"
+            className="mt-4 flex items-center gap-2 bg-white px-4 py-4 font-bold text-[20px] 
+                hover:shadow-[0px_1px_4px_rgba(0,0,0,0.16)] 
+                hover:scale-[0.96] 
+                transition-transform duration-150 "
           >
-            <AiOutlineArrowRight /> More Information
+            <AiOutlineArrowRight /> MORE INFORMATION
           </button>
-        </li>
-      </ul>
+      </div>
     </section>
   );
 };

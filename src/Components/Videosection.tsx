@@ -15,7 +15,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ product }) => (
       src={product.src}
       allow="autoplay; fullscreen; xr-spatial-tracking"
       allowFullScreen
-      className="w-full h-auto lg:w-[800px] lg:h-[480px]"
+      className="w-[300px] h-[250px] sm:w-[800px] sm:h-[480px]"
       frameBorder={0}
     />
   </section>

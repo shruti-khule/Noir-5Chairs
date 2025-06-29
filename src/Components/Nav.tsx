@@ -12,16 +12,19 @@ const Nav: React.FC = () => {
 
   return (
     <nav className="relative">
-      {/* -------- desktop -------- */}
-      <ul className="hidden lg:flex gap-12 items-center uppercase font-medium tracking-wide">
+      <ul className="hidden lg:flex gap-12 items-center uppercase font-large tracking-wide">
         <li>
-          <NavLink to="/home" className="px-2 hover:text-accent-yellow transition-colors">
+          <NavLink to="/home" className="inline-block p-[10px] text-[18px] font-medium uppercase
+               text-nav-black transition-colors duration-300
+               hover:text-nav-helper">
             Home
           </NavLink>
         </li>
         <li>
-          <button onClick={scrollToProducts} className="px-2 hover:text-accent-yellow transition-colors">
-            Sunglasses
+          <button onClick={scrollToProducts} className="inline-block p-[10px] text-[18px] font-medium uppercase
+               text-nav-black transition-colors duration-300
+               hover:text-nav-helper">
+            SUNGLASSES
           </button>
         </li>
       </ul>
@@ -45,7 +48,7 @@ const Nav: React.FC = () => {
             </NavLink>
           </li>
           <li>
-            <button onClick={scrollToProducts}>Sunglasses</button>
+            <button onClick={scrollToProducts}>SUNGLASSES</button>
           </li>
         </ul>
       )}

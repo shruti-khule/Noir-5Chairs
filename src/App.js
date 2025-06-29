@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import Thankyoupage from "./pages/Thankyoupage";
 import SingleProduct from "./pages/SingleProduct";
 import ErrorPage from "./pages/ErrorPage";
-import { GlobalStyle } from "./GlobalStyle";
+//import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import MoreinfoPositive from "./Components/moreinfoPositive";
 import MoreinfoNegative from "./Components/moreinfoNegative";
@@ -70,7 +70,6 @@ const App = () => {
     <CookiesProvider defaultSetOptions={{ path: "/" }}>
       <ThemeProvider theme={theme}>
         <Router>
-          <GlobalStyle />
           <Routes>
             <Route path="/" element={<Login handleLogin={handleLogin} />} />
             <Route path="/home" element={<Home userId={userId} ref={ref} />} />

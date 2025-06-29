@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
 interface HeroSectionProps {
-  /** Google-Analytics user ID */
   userId: string;
 }
 
@@ -14,46 +13,47 @@ const HeroSection: React.FC<HeroSectionProps> = ({ userId }) => {
   };
 
   return (
-    <section className="pt-20 pb-2.5 px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-9">
-        {/* ---------- copy ---------- */}
-        <div className="ml-12">
-          <p className="uppercase tracking-wide text-primary-blue mb-2">
+    <section className="">
+      <div className="mx-[8%] mt-20 mb-2.5 max-w-full px-0 ">
+      <div className="grid grid-cols-2 flex gap-8 w-[100%]">
+        <div>
+          <p className="mb-0 uppercase tracking-wide text-primary-blue">
             Welcome to
           </p>
-          <h1 className="capitalize font-bold text-primary-blue text-5xl lg:text-6xl">
+          <h1 className="capitalize font-bold text-primary-blue text-[3.5rem]">
             NOIR
           </h1>
-          <p className="text-primary-blue text-xl lg:text-2xl">
+          <p className="mb-[20px] mt-[20px] text-primary-blue text-[1rem]">
             Timeless Elegance, Enduring Style
           </p>
 
           <NavLink to="#">
             <button
               onClick={handleClick}
-              className="mt-6 inline-block bg-primary-blue text-white font-semibold px-6 py-3 rounded-xl
-                         transition hover:bg-accent-yellow hover:text-primary-blue"
+              className="inline-block uppercase bg-primary-blue text-white py-[0.9rem] px-[1.8rem] rounded-[3px]         
+                          transition duration-300 hover:bg-white hover:text-primary-blue
+    hover:shadow-[0_1px_4px_rgba(0,0,0,0.16)] hover:scale-[0.96]
+    active:shadow-[0_1px_4px_rgba(0,0,0,0.16)] active:scale-[0.96] text-[10px]"
             >
               Shop Now
             </button>
           </NavLink>
         </div>
 
-        {/* ---------- hero image ---------- */}
-        <div className="mt-2.5 w-4/5 lg:w-1/2 mx-auto flex justify-end">
+        <div className="mt-[10px] w-full mr-20 flex justify-right">
           <figure className="relative w-full">
-            {/* former ::after pseudo-element */}
             <span
               aria-hidden
-              className="absolute left-1/2 -top-20 -z-10 h-4/5 w-3/5 bg-primary-blue"
+              className="absolute left-[35%] top-[1rem] z-[-1] h-[62%] md:h-[78%] w-[78%] md:w-[55%] bg-primary-blue"
             />
             <img
               src="images/image1_heading.png"
               alt="Noir hero"
-              className="w-full h-auto object-contain"
+              className="md:w-[80%] h-auto"
             />
           </figure>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -59,45 +59,39 @@ const MoreinfoNegative: React.FC = () => {
         />
       </div>
 
-      <main id="top" className="mt-20 px-4 flex flex-col items-center text-center">
-        <hr className="w-full border-gray-300" />
-        <h1 className="text-primary-blue text-5xl font-bold my-4">Product Details</h1>
-        <hr className="w-full border-gray-300 mb-4" />
+      <main id="top" className="mt-20 px-4 flex flex-col items-center text-center pt-10">
+        <h1 className="text-primary-blue text-[3rem] font-black my-4 mt-8">Product Details</h1>
 
         <FeatureBlock
-          title="Material: Metal"
+          title="Material: Plastic"
           open={open.material}
           toggle={() => { toggle('material'); logFeature('Material'); }}
         >
-          The {product.product_name} is made from high-quality metal, ensuring enhanced stability and
-          durability.
+          The {product.product_name} is made from standard plastic.
         </FeatureBlock>
 
         <FeatureBlock
-          title="Backrest: Reclining function included"
+          title="Backrest: No reclining function"
           open={open.backrest}
           toggle={() => { toggle('backrest'); logFeature('Backrest'); }}
         >
-          The {product.product_name} features a reclining backrest, allowing for a more ergonomic
-          sitting posture.
+          The {product.product_name} does not offer a reclining backrest.
         </FeatureBlock>
 
         <FeatureBlock
-          title="Adjustable Seat Height: Included"
+          title="Adjustable Seat Height: Not included"
           open={open.seat}
           toggle={() => { toggle('seat'); logFeature('Adjustable Seat Height'); }}
         >
-          The {product.product_name} allows for adjustable seat height to suit different body
-          heights.
+          The {product.product_name} does not offer adjustable seat height.
         </FeatureBlock>
 
         <FeatureBlock
-          title="Safety Feature: Included"
+          title="Safety Feature: Not included"
           open={open.safety}
           toggle={() => { toggle('safety'); logFeature('Safety Feature'); }}
         >
-          A safety mechanism locks the wheels when the chair is unoccupied, keeping it securely in
-          place.
+          The {product.product_name} does not include a safety mechanism (e.g., wheel lock).
         </FeatureBlock>
       </main>
 
@@ -112,16 +106,15 @@ export default MoreinfoNegative;
 interface FeatureProps { title: string; open: boolean; toggle: () => void; children: React.ReactNode; }
 
 const FeatureBlock: React.FC<FeatureProps> = ({ title, open, toggle, children }) => (
-  <>
+  <div className="p-4">
     <h2
-      className="text-primary-blue text-3xl font-semibold flex items-center justify-center gap-2 cursor-pointer"
+      className="text-primary-blue text-[2.5rem] font-semibold flex items-center justify-center gap-2 cursor-pointer"
       onClick={toggle}
     >
       {title} {open ? <AiOutlineUp size={25} /> : <AiOutlineDown size={25} />}
     </h2>
-    <p className={`${open ? 'block' : 'hidden'} text-black max-w-2xl mx-auto mt-2 text-lg`}>
+    <p className={`${open ? 'block' : 'hidden'} text-black max-w-2xl mx-auto mt-2 text-[20px]`}>
       {children}
     </p>
-    <hr className="w-full border-gray-200 my-4" />
-  </>
+  </div>
 );

@@ -60,9 +60,7 @@ const MoreinfoPositive: React.FC = () => {
       </div>
 
       <main id="top" className="mt-20 px-4 flex flex-col items-center text-center">
-        <hr className="w-full border-gray-300" />
         <h1 className="text-primary-blue text-5xl font-bold my-4">Product Details</h1>
-        <hr className="w-full border-gray-300 mb-4" />
 
         <FeatureBlock
           title="Material: Metal"
@@ -122,6 +120,5 @@ const FeatureBlock: React.FC<FeatureProps> = ({ title, open, toggle, children })
     <p className={`${open ? 'block' : 'hidden'} text-black max-w-2xl mx-auto mt-2 text-lg`}>
       {children}
     </p>
-    <hr className="w-full border-gray-200 my-4" />
   </>
 );

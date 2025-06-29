@@ -9,7 +9,9 @@ module.exports = {
       },
       colors: {
         'primary-blue': '#364F6B',
-        'accent-yellow': '#FCE698',
+        'secondary': '#FCE698',
+        'nav-black'    : '#212529',   // theme.colors.black
+        'nav-helper'   : '#8490ff',   // theme.colors.helper
       },
       /* --- Extra screens to match the old media-queries --- */
       screens: {

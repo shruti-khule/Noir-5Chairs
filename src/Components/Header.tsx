@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Nav from './Nav';
 
-/**  No styled-components import – everything is Tailwind now */
 const Header: React.FC = () => (
   <header
     id="header"

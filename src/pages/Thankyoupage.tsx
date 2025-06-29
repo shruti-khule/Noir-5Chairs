@@ -71,10 +71,10 @@ const ThankYouPage: React.FC = () => {
   /* -------------------------------------------------------------- */
   return (
     <div className="pb-32">
-      <header className="h-20 w-full bg-accent-yellow" />
+      <div className="h-20 w-full bg-secondary" />
   
-      <section className="mb-80 text-center mt-10">
-        <h2 className="text-[95px] font-extrabold mb-8">Thank you.</h2>
+      <section className="mb-40 text-center mt-10">
+        <h2 className="text-[95px] text-primary-blue mt-[8rem] font-semibold mb-8">Thank You.</h2>
   
         {getSurveyLink() && (
           <h3 className="text-[30px]">
@@ -89,4 +89,6 @@ const ThankYouPage: React.FC = () => {
       <Footer />
     </div>
   );
-}
+};
+
+export default ThankYouPage;

@@ -49,7 +49,7 @@ const SecondHeader: React.FC<SecondHeaderProps> = ({
   };
 
   return (
-    <header className="bg-accent-yellow flex items-center justify-between px-4 py-1 w-full">
+    <header className="bg-secondary flex items-center justify-between px-4 py-1 w-full">
       {/* --- logo + home --- */}
       <div className="flex items-center gap-2 mdx:w-1/2 lg:w-auto">
         <NavLink to={`/home?mode=${mode}&userId=${userId}`}>
@@ -59,7 +59,7 @@ const SecondHeader: React.FC<SecondHeaderProps> = ({
         <NavLink
           to={`/home?mode=${mode}&userId=${userId}`}
           onClick={() => handleClick('Home')}
-          className="font-bold text-[2.7rem] mid:text-3xl text-primary-blue"
+          className="font-bold text-[1.2rem] md:text-[1.8rem] mid:text-3xl text-primary-blue p-3 md:pl-6"
         >
           Home
         </NavLink>
@@ -68,11 +68,11 @@ const SecondHeader: React.FC<SecondHeaderProps> = ({
       {/* --- cart / buy now --- */}
       <NavLink
         to={`/thankyou?mode=${mode}&userId=${userId}&product_id=${product_id}&isV=${version}`}
-        className="mr-20 flex items-center gap-1 text-primary-blue"
+        className="md:mr-20 flex items-center gap-1 text-primary-blue"
         onClick={() => handleClick(productName || 'Product')}
       >
         <BsCartCheckFill size={35} className="mt-2" />
-        <h3 className="pt-2 text-[21px] md:text-lg ssm:text-base">Buy {productName} Now</h3>
+        <h3 className="pt-2 text-[1.2rem] md:text-[1.5rem] font-bold">Buy {productName} Now</h3>
       </NavLink>
     </header>
   );
