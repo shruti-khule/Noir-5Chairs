@@ -9,7 +9,6 @@ import { db } from '../services/firebase';
 import { Product } from '../types/types';
 
 const MoreinfoNegative: React.FC = () => {
-  /* ---------- GA & params ---------- */
   useEffect(() => {
     ReactGA.send({ hitType: 'pageview', page: window.location.href, title: 'MoreInfo Page' });
   }, []);
@@ -22,7 +21,6 @@ const MoreinfoNegative: React.FC = () => {
   const userId   = params.get('userId') ?? '';
   const version  = params.get('isV');
 
-  /* ---------- feature toggles ---------- */
   const [open, setOpen] = useState({
     material: false,
     backrest: false,
@@ -33,7 +31,6 @@ const MoreinfoNegative: React.FC = () => {
   const toggle = (key: keyof typeof open) =>
     setOpen((s) => ({ ...s, [key]: !s[key] }));
 
-  /* ---------- Firestore helpers ---------- */
   const logBuyNow = async (payload: string) =>
     setDoc(doc(db, 'users', userId), { 'Clicked Jetzt Kaufen': arrayUnion(payload) }, { merge: true });
 
@@ -48,7 +45,6 @@ const MoreinfoNegative: React.FC = () => {
 
   return (
     <>
-      {/* fixed header */}
       <div className="fixed top-0 left-0 w-full z-50">
         <SecondHeader
           userId={userId}
@@ -102,7 +98,6 @@ const MoreinfoNegative: React.FC = () => {
 
 export default MoreinfoNegative;
 
-/* ---------- tiny helper ---------- */
 interface FeatureProps { title: string; open: boolean; toggle: () => void; children: React.ReactNode; }
 
 const FeatureBlock: React.FC<FeatureProps> = ({ title, open, toggle, children }) => (

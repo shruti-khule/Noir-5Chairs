@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,7 +9,6 @@ import Contact from "./pages/Contact";
 import Thankyoupage from "./pages/Thankyoupage";
 import SingleProduct from "./pages/SingleProduct";
 import ErrorPage from "./pages/ErrorPage";
-//import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import MoreinfoPositive from "./Components/moreinfoPositive";
 import MoreinfoNegative from "./Components/moreinfoNegative";
@@ -39,10 +38,6 @@ const App = () => {
     setUserId(id);
   };
   const ref = useRef(null);
-
-  const handleClick = () => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const theme = {
     colors: {

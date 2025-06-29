@@ -29,7 +29,6 @@ const Nav: React.FC = () => {
         </li>
       </ul>
 
-      {/* -------- mobile burger -------- */}
       <button
         aria-label="Toggle navigation"
         onClick={() => setOpen(!open)}
@@ -38,7 +37,6 @@ const Nav: React.FC = () => {
         {open ? <CgClose /> : <CgMenu />}
       </button>
 
-      {/* -------- mobile drawer -------- */}
       {open && (
         <ul className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-10
                        bg-white uppercase font-medium text-4xl">

@@ -1,29 +1,19 @@
 /* Thankyoupage.tsx */
 import React, { useEffect } from "react";
 import Footer from "../Components/Footer";
-import styled from "styled-components";
 import { doc, setDoc } from "@firebase/firestore";
 import { db } from "../services/firebase";
 
-/* ------------------------------------------------------------------ */
-/* Optional: extract query-param helpers                              */
-/* ------------------------------------------------------------------ */
 const useQuery = () => new URLSearchParams(window.location.search);
 
-/* ------------------------------------------------------------------ */
-/* Component                                                          */
-/* ------------------------------------------------------------------ */
 const ThankYouPage: React.FC = () => {
   const params   = useQuery();
-  const userId   = params.get("userId");          // string | null
-  const mode     = params.get("mode");            // string | null
-  const version  = params.get("isV");             // string | null
+  const userId   = params.get("userId");          
+  const mode     = params.get("mode");            
+  const version  = params.get("isV");             
 
-  /* -------------------------------------------------------------- */
-  /* Persist accumulated session-storage timers to Firestore        */
-  /* -------------------------------------------------------------- */
   useEffect(() => {
-    if (!userId) return;                           // guard against null
+    if (!userId) return;                           
 
     const ref = doc(db, "users", userId);
 
@@ -49,9 +39,6 @@ const ThankYouPage: React.FC = () => {
       .finally(() => sessionStorage.clear());
   }, [userId]);
 
-  /* -------------------------------------------------------------- */
-  /* Qualtrics redirect map                                         */
-  /* -------------------------------------------------------------- */
   const getSurveyLink = (): string | null => {
     const map: Record<string, Record<string, string>> = {
       "1": {
@@ -64,11 +51,9 @@ const ThankYouPage: React.FC = () => {
       },
     };
 
-    // version can be "true" | "false" | null
     return mode && version ? map[mode]?.[version as "true" | "false"] ?? null : null;
   };
 
-  /* -------------------------------------------------------------- */
   return (
     <div className="pb-32">
       <div className="h-20 w-full bg-secondary" />

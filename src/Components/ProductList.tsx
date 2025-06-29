@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import product_card, { Product } from '../data/product_data';
+import product_card from '../data/product_data';
 import Cell from './Cell';
 
 interface ProductListProps {

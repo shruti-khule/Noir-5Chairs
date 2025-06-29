@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import product_card from '../data/product_data';
 
 interface Model3DProps {
-  /** The product whose images you’re rendering */
   product: typeof product_card[number] | null;
   mode?: string;
 }

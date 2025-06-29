@@ -2,16 +2,15 @@
 export interface Product {
   id: number;
   product_name: string;
-  price: string;       // keep as string because value + label (e.g. “from $89.99”)
-  farbe: string;       // “farbe” = colour
+  price: string;       
+  farbe: string;       
   currency: string;
-  thumb: string;       // local image path or URL
+  thumb: string;       
   sku: string;
   src: string; 
-  images?: string[];        // 3-D embed URL
+  images?: string[];        
 }
 
-/** Immutable catalogue; feel free to rename `product_card` → `products` */
 const product_card: readonly Product[] = [
   {
     id: 1,

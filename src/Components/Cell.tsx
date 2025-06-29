@@ -1,11 +1,9 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";
 
-/**
- * ✨ Cell component with Tailwind styles adapted from GlobalStyle
- */
+
 export interface Shoe {
   id: string;
   product_name: string;

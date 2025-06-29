@@ -17,7 +17,6 @@ const Header: React.FC = () => (
       />
     </NavLink>
 
-    {/* hide nav below lg just like before */}
     <div className="hidden lg:block">
       <Nav />
     </div>

@@ -4,21 +4,13 @@ import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { db } from "../services/firebase";
 import parseUserAgent from "../services/deviceInfo";
 
-/* ------------------------------------------------------------- */
-/* Component props                                               */
-/* ------------------------------------------------------------- */
 interface LoginProps {
-  /** Optional callback if the parent wants to react to a successful login */
   handleLogin?: (userId: string) => void;
 }
 
-/* ------------------------------------------------------------- */
-/* Component                                                     */
-/* ------------------------------------------------------------- */
 const Login: React.FC<LoginProps> = ({ handleLogin }) => {
   const navigate = useNavigate();
 
-  /* ---------- helpers ---------- */
   const validateUserId = (userId: string): string | null => {
     if (userId.length !== 4) return "User ID must be exactly 4 characters long.";
 
@@ -33,13 +25,11 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
     return null;
   };
 
-  /* ---------- form submit ---------- */
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
     e.preventDefault();
 
-    /* Safer than e.target.title.value in TS */
     const formData = new FormData(e.currentTarget);
     const rawId = (formData.get("title") as string | null) ?? "";
     const userId = rawId.trim();
@@ -50,10 +40,8 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
       return;
     }
 
-    /* clear any previous session data */
     sessionStorage.clear();
 
-    /* Firestore reference */
     const userRef = doc(db, "users", userId);
 
     try {
@@ -65,7 +53,6 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
         return;
       }
 
-      /* Store null placeholders for 5 product-detail versions */
       sessionStorage.setItem(
         "productdetailsVersion",
         JSON.stringify([null, null, null, null, null]),
@@ -73,24 +60,20 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
 
       const modeParam = new URLSearchParams(window.location.search).get("mode");
 
-      /* Navigate first so the UI feels instant */
       navigate(`/home?mode=${modeParam}&userId=${userId}`);
 
-      /* Optional parent callback */
       handleLogin?.(userId);
 
-      /* Record user meta in Firestore */
       await setDoc(userRef, {
         userId,
         mode: modeParam,
-        userAgent: parseUserAgent(), // whatever your helper returns
+        userAgent: parseUserAgent(), 
       });
     } catch (err) {
       console.error("Error accessing Firestore:", err);
     }
   };
 
-  /* ---------- render ---------- */
   return (
     <div>
       <form

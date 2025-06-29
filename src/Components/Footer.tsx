@@ -2,11 +2,6 @@ import React from "react";
 import { FaDiscord, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer: React.FC = () => {
-  /** Smooth-scroll helper */
-  const handleClick = (): void => {
-    const element = document.getElementById("header");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <footer className="bg-[#0A1435] text-white pt-20 pb-20">

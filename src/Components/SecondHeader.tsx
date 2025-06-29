@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsCartCheckFill } from 'react-icons/bs';
-import products, { Product } from '../data/product_data';
+import products from '../data/product_data';
 import LOGO from '../assets/Logo_Noir.png';
 import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../services/firebase';
@@ -50,7 +50,6 @@ const SecondHeader: React.FC<SecondHeaderProps> = ({
 
   return (
     <header className="bg-secondary flex items-center justify-between px-4 py-1 w-full">
-      {/* --- logo + home --- */}
       <div className="flex items-center gap-2 mdx:w-1/2 lg:w-auto">
         <NavLink to={`/home?mode=${mode}&userId=${userId}`}>
           <img src={LOGO} alt="Noir logo" className="w-[90px] h-[70px] hidden ssm:block" />
@@ -65,7 +64,6 @@ const SecondHeader: React.FC<SecondHeaderProps> = ({
         </NavLink>
       </div>
 
-      {/* --- cart / buy now --- */}
       <NavLink
         to={`/thankyou?mode=${mode}&userId=${userId}&product_id=${product_id}&isV=${version}`}
         className="md:mr-20 flex items-center gap-1 text-primary-blue"

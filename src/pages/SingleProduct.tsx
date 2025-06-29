@@ -183,17 +183,6 @@ const SingleProduct: React.FC = () => {
               </button>
             </div>
 
-            {/* Optional: keep the iframe as a desktop fallback if you wish
-            <iframe
-              className="hidden md:block mt-8"
-              src={`https://ar-chair-viewer-six.vercel.app/?model=${product.sku}`}
-              title="AR Chair Viewer"
-              frameBorder={0}
-              width={950}
-              height={750}
-              allow="camera; microphone; fullscreen; xr-spatial-tracking"
-            />
-            */}
           </>
         )}
       </div>

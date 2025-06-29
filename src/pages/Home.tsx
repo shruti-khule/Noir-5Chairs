@@ -6,32 +6,22 @@ import Footer from "../Components/Footer";
 import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";
 
-/* ------------------------------------------------------------------ */
-/* Props                                                               */
-/* ------------------------------------------------------------------ */
 interface HomeProps {
-  /** Optional ref you want forwarded down to <ProductList> */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
-/* ------------------------------------------------------------------ */
-/* Component                                                           */
-/* ------------------------------------------------------------------ */
 const Home: React.FC<HomeProps> = ({ forwardedRef }) => {
   const params  = new URLSearchParams(window.location.search);
   const userId  = params.get("userId") ?? "";
 
-  /* page-time tracking */
   const [pageStart, setPageStart]   = useState<number>(0);
   const [initial,   setInitial]     = useState<number>(0);
 
-  /* Demo hero-section text */
   const heroData = {
     name: "Sunny",
     description: "This is a description for the home page",
   };
 
-  /* Optional click logger you might pass to children */
   const handleClick = async (feature: string): Promise<void> => {
     try {
       await setDoc(
@@ -44,7 +34,6 @@ const Home: React.FC<HomeProps> = ({ forwardedRef }) => {
     }
   };
 
-  /* --- mount --- */
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -52,7 +41,6 @@ const Home: React.FC<HomeProps> = ({ forwardedRef }) => {
     setPageStart(Date.now());
   }, []);
 
-  /* --- unmount --- */
   useEffect(() => {
     return () => {
       const elapsed = (Date.now() - pageStart) / 1_000;
@@ -60,7 +48,6 @@ const Home: React.FC<HomeProps> = ({ forwardedRef }) => {
     };
   }, [pageStart, initial]);
 
-  /* ---------------------------------------------------------------- */
   return (
     <>
       <Header />

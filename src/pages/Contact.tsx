@@ -5,7 +5,6 @@ const Contact: React.FC = () => (
     <h1 className="text-5xl font-bold mb-16">Contact Us</h1>
 
     <form className="max-w-[50rem] mx-auto flex flex-col gap-12">
-      {/* name */}
       <input
         required
         type="text"
@@ -13,7 +12,6 @@ const Contact: React.FC = () => (
         className="border p-4 uppercase tracking-wide"
       />
 
-      {/* e-mail */}
       <input
         required
         type="email"
@@ -21,7 +19,6 @@ const Contact: React.FC = () => (
         className="border p-4 uppercase tracking-wide"
       />
 
-      {/* message */}
       <textarea
         required
         rows={5}
@@ -29,7 +26,6 @@ const Contact: React.FC = () => (
         className="border p-4 uppercase tracking-wide resize-none"
       />
 
-      {/* submit */}
       <input
         type="submit"
         value="Send message"
