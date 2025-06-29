@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import styled from "styled-components";
 import product_card from "../data/product_data";
 import ProductDisplay from "../Components/ProductDisplay";
@@ -137,6 +137,16 @@ const SingleProduct: React.FC = () => {
     }
   };
 
+  const handleViewInSpace = useCallback(() => {
+    if (!product) return;
+    // Top-level navigation ensures Scene Viewer / Quick Look may launch
+    window.location.href = `https://ar-chair-viewer-six.vercel.app/?model=${encodeURIComponent(
+      product.sku,
+    )}`;
+    // If you prefer a new tab on desktop, swap for:
+    // window.open(url, "_blank", "noopener,noreferrer");
+  }, [product]);
+
   /* ---------------------------------------------------------------- */
   if (!product) return <div>Loading…</div>;
 
@@ -162,9 +172,20 @@ const SingleProduct: React.FC = () => {
         {mode === "2" ? (
           <Videosection product={product} />
         ) : (
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+          <>
+            {/* View-in-AR button (delivers user activation) */}
+            <div className="flex justify-center">
+              <button
+                onClick={handleViewInSpace}
+                className="mt-6 rounded-[2px] bg-primary-blue px-8 py-4 text-lg font-semibold text-white hover:bg-gray-800"
+              >
+                View in your space
+              </button>
+            </div>
+
+            {/* Optional: keep the iframe as a desktop fallback if you wish
             <iframe
-              className="ARiframe"
+              className="hidden md:block mt-8"
               src={`https://ar-chair-viewer-six.vercel.app/?model=${product.sku}`}
               title="AR Chair Viewer"
               frameBorder={0}
@@ -172,7 +193,8 @@ const SingleProduct: React.FC = () => {
               height={750}
               allow="camera; microphone; fullscreen; xr-spatial-tracking"
             />
-          </div>
+            */}
+          </>
         )}
       </div>
 

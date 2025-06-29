@@ -27,9 +27,9 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-base md:text-[1.5rem] font-bold mb-4">Follow Us</h3>
           <div className="flex gap-8 text-white">
-            <FaDiscord style={{ color: 'white' }} className="p-4 border-2 border-white rounded-full text-2xl text-[#FFFFFF] fill-current cursor-pointer" />
-            <FaInstagram className="p-4 border-2 border-white rounded-full text-2xl text-white cursor-pointer" />
-            <FaYoutube className="p-4 border-2 border-white rounded-full text-2xl text-white cursor-pointer" />
+            <FaDiscord className="w-10 h-10 p-1 border-2 border-white rounded-full text-2xl text-[#FFFFFF] fill-current cursor-pointer" />
+            <FaInstagram className="w-10 h-10 p-1 border-2 border-white rounded-full text-2xl text-[#FFFFFF] fill-current cursor-pointer" />
+            <FaYoutube className="w-10 h-10 p-1 border-2 border-white rounded-full text-2xl text-[#FFFFFF] fill-current cursor-pointer" />
           </div>
         </div>
 
@@ -44,8 +44,10 @@ const Footer: React.FC = () => {
       <div className="pt-4 md:pt-12 mx-auto">
         <hr className="colour-white mb-8" />
         <div className="flex flex-col md:flex-row mt-12 ml-14 mr-14">
-          <p className="mt-4 md:mt-12">© {new Date().getFullYear()} Noir · All Rights Reserved</p>
-          <div className="flex-row gap-6 mt-4 md:mt-12">
+          <div className="flex-1">
+            <p className="mt-4 md:mt-12">© {new Date().getFullYear()} Noir · All Rights Reserved</p>
+          </div>
+          <div className="flex flex-col gap-1 mt-4 md:mt-12 flex-1">
             <p>FAQ</p>
             <p>Imprint</p>
           </div>
