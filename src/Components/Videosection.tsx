@@ -8,18 +8,18 @@ export const VideoSection: React.FC<Props> = ({ sku }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Forward a postMessage after the first user gesture anywhere in the document.
-  useEffect(() => {
-    const handler = () => {
-      iframeRef.current?.contentWindow?.postMessage(
-        { type: "enter-ar" },
-        "https://ar-chair-viewer-six.vercel.app"
-      );
-      window.removeEventListener("pointerdown", handler);
-    };
+  // useEffect(() => {
+  //   const handler = () => {
+  //     iframeRef.current?.contentWindow?.postMessage(
+  //       { type: "enter-ar" },
+  //       "https://ar-chair-viewer-six.vercel.app"
+  //     );
+  //     window.removeEventListener("pointerdown", handler);
+  //   };
 
-    window.addEventListener("pointerdown", handler, { once: true });
-    return () => window.removeEventListener("pointerdown", handler);
-  }, []);
+  //   window.addEventListener("pointerdown", handler, { once: true });
+  //   return () => window.removeEventListener("pointerdown", handler);
+  // }, []);
 
   return (
     <section className="mt-8 flex justify-center">
