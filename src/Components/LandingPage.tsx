@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ userId }) => {
           <figure className="relative w-full">
             <span
               aria-hidden
-              className="absolute left-[35%] top-[1rem] z-[-1] h-[62%] md:h-[78%] w-[78%] md:w-[55%] bg-primary-blue"
+              className="absolute left-[35%] top-[1rem] md:top-[-2.8rem] z-[-1] h-[62%] md:h-[78%] w-[78%] md:w-[55%] bg-primary-blue"
             />
             <img
               src="images/image1_heading.png"

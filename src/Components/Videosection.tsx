@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useRef, useEffect } from "react";
 
-interface ProductWithSrc {
-  src: string;
+interface Props {
+  sku: string;
 }
 
-interface VideoSectionProps {
-  product: ProductWithSrc;
-}
+export const VideoSection: React.FC<Props> = ({ sku }) => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-const VideoSection: React.FC<VideoSectionProps> = ({ product }) => (
-  <section className="mt-8 flex justify-center">
-    <iframe
-      title="3D Model"
-      src={product.src}
-      allow="autoplay; fullscreen; xr-spatial-tracking"
-      allowFullScreen
-      className="w-[300px] h-[250px] sm:w-[800px] sm:h-[480px]"
-      frameBorder={0}
-    />
-  </section>
-);
+  // Forward a postMessage after the first user gesture anywhere in the document.
+  useEffect(() => {
+    const handler = () => {
+      iframeRef.current?.contentWindow?.postMessage(
+        { type: "enter-ar" },
+        "https://ar-chair-viewer-six.vercel.app"
+      );
+      window.removeEventListener("pointerdown", handler);
+    };
 
-export default VideoSection;
+    window.addEventListener("pointerdown", handler, { once: true });
+    return () => window.removeEventListener("pointerdown", handler);
+  }, []);
+
+  return (
+    <section className="mt-8 flex justify-center">
+      <iframe
+        ref={iframeRef}
+        title="AR Viewer"
+        src={`https://ar-chair-viewer-six.vercel.app/?model=${encodeURIComponent(sku)}`}
+        allow="xr-spatial-tracking; camera; gyroscope; accelerometer; fullscreen; autoplay"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
+        className="w-[300px] h-[250px] sm:w-[800px] sm:h-[480px]"
+        frameBorder={0}
+      />
+    </section>
+  );
+};
