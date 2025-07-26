@@ -174,7 +174,7 @@ const SingleProduct: React.FC = () => {
         ) : (
           <>
             {/* View-in-AR button (delivers user activation) */}
-            <div className="flex justify-center">
+            <div className="flex justify-center w-full h-[750px]">
                {/* 
               <button
                 onClick={handleViewInSpace}
@@ -184,12 +184,13 @@ const SingleProduct: React.FC = () => {
               </button>
               */}
                 <iframe
-              src={`https://ar-chair-viewer-six.vercel.app/?model=${encodeURIComponent(product.sku)}`}
-              title="AR Chair Viewer"
-              allow="xr-spatial-tracking; camera; microphone; fullscreen"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              loading="lazy"
+                src={`https://ar-chair-viewer-six.vercel.app/?model=${encodeURIComponent(product.sku)}`}
+                title="AR Chair Viewer"
+                allow="xr-spatial-tracking; camera; microphone; fullscreen"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                loading="lazy"
+                className="w-[350px]"
             />
             </div>
 
